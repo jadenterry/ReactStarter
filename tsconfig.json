@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "module": "es6",
+        "target": "es6",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "removeComments": false,
+        "preserveConstEnums": false,
+        "jsx": "react",
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "."
+    }
+}
