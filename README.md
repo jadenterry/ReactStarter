@@ -1,6 +1,3 @@
 React starter project with:
 
-React
-Redux
-Typescript
-Webpack
+React, Redux, Typescript, Webpack
