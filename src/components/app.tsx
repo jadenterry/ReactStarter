@@ -3,10 +3,10 @@ import {ApplicationState} from '../state';
 import {connect} from 'react-redux';
 import {increment, decrement} from '../actions/appActions';
 
-interface Properties {
+export interface Properties extends React.Props<App> {
   counter?: number;
-  onIncrement?: (val: number) => void;
-  onDecrement?: (val: number) => void;
+  onIncrement?: () => void;
+  onDecrement?: () => void;
 }
 
 class App extends React.Component<Properties, {}> {
@@ -15,14 +15,14 @@ class App extends React.Component<Properties, {}> {
   }
   render() {
     return (
-      <div>
-        <button onClick={() => this.props.onIncrement(this.props.counter)}>
-          Increment
-        </button>
-        <button onClick={() => this.props.onDecrement(this.props.counter)}>
+      <div style={{display: 'flex', justifyContent: 'center'}}>
+        <button onClick={() => this.props.onDecrement()}>
           Decrement
         </button>
-        {this.props.counter && <div>{this.props.counter}</div>}
+        <button onClick={() => this.props.onIncrement()}>
+          Increment
+        </button>
+        <div>&nbsp;&nbsp;{this.props.counter}</div>
       </div>
     );
   }
@@ -30,19 +30,20 @@ class App extends React.Component<Properties, {}> {
 
 const mapStateToProps = (state: ApplicationState, ownProps: Properties) => {
   return {
-    counter: state.counter,
-  };
+    counter: state.counter
+  } as Properties
 };
 
 const mapDispatchToProps = (dispatch: Function, ownProps: Properties) => {
   return {
-    onIncrement: (val: number) => {
-      dispatch(increment(val));
+    onIncrement: () => {
+      dispatch(increment());
     },
-    onDecrement: (val: number) => {
-      dispatch(decrement(val));
+    onDecrement: () => {
+      dispatch(decrement());
     },
-  };
+  } as Properties
 };
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

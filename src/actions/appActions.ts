@@ -2,26 +2,22 @@ import {Dispatch} from 'redux';
 import {ApplicationState} from '../state';
 
 export interface Increment {
-    type: 'App/Increment',
-    value: number
+    type: 'App/Increment'
 }
 
-export function increment(val: number): Increment {
+export function increment(): Increment {
     return {
-        type: 'App/Increment',
-        value: val
+        type: 'App/Increment'
     }
 }
 
 export interface Decrement {
-    type: 'App/Decrement',
-    value: number
+    type: 'App/Decrement'
 }
 
-export function decrement(val: number): Decrement {
+export function decrement(): Decrement {
     return {
-        type: 'App/Decrement',
-        value: val
+        type: 'App/Decrement'
     }
 }
 

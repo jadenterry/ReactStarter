@@ -9,10 +9,12 @@ export default function appReducer(
 ) {
   switch (action.type) {
     case 'App/Increment':
-      state = {...state, counter: action.value + 1};
+      state = {...state, counter: state.counter + 1};
       break;
     case 'App/Decrement':
-      state = {...state, counter: action.value - 1};
+      state = {...state, counter: state.counter - 1};
+      break;
+    default:
       break;
   }
   return state;
